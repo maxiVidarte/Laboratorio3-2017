@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="./estilos.css">
+    <script src = "./validaciones.js"></script>
+</head>
+<body>
+<div class="divInputs">
+    <label class="lbl"for="txtNombre">Nombre</label><br>
+    <input class="txt" type="text" name="nombre" id="txtNombre" placeholder="Tu nombre..." ><br><br>
+    <label class="lbl"for="txtApellido">Apellido</label><br>
+    <input class="txt" type="text" name="apellido" id="txtApellido" placeholder="Tu apellido..." ><br><br>
+    <input class="btn" type="button" name="guardar" id="btnGuardar" value="Guardar" onclick="validarCampos()"><br><br>
+</div>
+<br><br>
+
+<h2>Lista de Personas</h2>
+
+<table>
+    <thead>
+        <div class="divThs"> 
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Accion</th>
+        </div>
+    </thead>
+    <tbody id="tCuerpo">
+        <tr>
+            <td>Alfred</td>
+            <td>Nobel</td>
+            <td><a href="">borrar</a></td>
+        </tr>
+
+        <tr>
+            <td>Amadeus</td>
+            <td>Mozart</td>
+            <td><a href="">borrar</a></td>
+        </tr>
+
+        <tr>
+            <td>Conan</td>
+            <td>Doyle</td>
+            <td><a href="">borrar</a></td>
+        </tr>
+
+        <tr>
+            <td>Edgar Allan</td>
+            <td>Poe</td>
+            <td><a href="">borrar</a></td>
+        </tr>
+
+        <tr>
+            <td>Agatha</td>
+            <td>Christie</td>
+            <td><a href="">borrar</a></td>
+        </tr>
+
+        <tr>
+            <td>Howard</td>
+            <td>Lovecraft</td>
+            <td><a href="">borrar</a></td>
+        </tr>
+
+
+    </tbody>
+
+
+
+</table>
+    
+</body>
+</html>

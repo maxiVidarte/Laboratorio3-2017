@@ -1,0 +1,55 @@
+.btn{
+    border-radius: 10px;
+    width: 50%;
+    height: 40px;
+    background: seagreen;
+    font-weight: bold;
+    color: white;
+    border: none;
+    cursor: pointer;
+    }
+    input[type=button]:hover{
+        background: lightseagreen;
+    }
+
+.txt{
+    border-radius: 5px;
+    width: 97%;
+    height: 97%;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+}
+
+.lbl{
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.divInputs{
+    background: lightblue;
+    width: 50%;
+    padding-top: 10px;
+    padding-left: 15px;
+    border-radius: 5px;
+
+}
+table{
+    width: 100%;
+    padding-left: 15px;
+    padding-top: 15px;
+    border-collapse: collapse;
+}
+th{
+    text-align: left;
+    background: darkseagreen;
+    color: white;
+    height: 25px;
+}
+
+.error{
+    border-radius: 5px;
+    width: 97%;
+    height: 97%;
+    margin: 8px 0;
+    border: 2px solid darkred;
+}
