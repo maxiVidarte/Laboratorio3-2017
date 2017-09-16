@@ -4,10 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="java.js"></script>
+    <link type="text/css" rel="stylesheet" href="./estilos.css">
+    <script type="text/javascript" src="./java.js"></script>
     <title>Document</title>
 </head>
 <body>
+    <div><input type="button" ></div>
+    <div class="divInputs" >
+        <label class="lbl"for="txtNombre">Nombre</label><br>
+        <input class="txt" type="text" name="nombre" id="txtNombre" placeholder="nombre..." ><br><br>
+        <label class="lbl"for="txtApellido">Apellido</label><br>
+        <input class="txt" type="text" name="apellido" id="txtApellido" placeholder="apellido..." ><br><br>
+        <label class="lbl"for="txtfecha">Fecha</label><br>
+        <input class="txt" type="date" name="fecha" id="txtFecha" placeholder="Fecha..." ><br><br>
+        <label class="lbl"for="txtTelefono">Telefono</label><br>
+        <input class="txt" type="number" name="telefono" id="txtTelefono" placeholder="Telefono..." ><br><br>
+        <input class="btn" type="button" name="guardar" id="btnGuardar" value="Guardar" onclick="peticionPost()"><br><br>
+    </div>
+    <br><br>
     
+    <h2>Lista de Personas</h2>
+    
+    <table>
+        <thead>
+            <div class="divThs"> 
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>fecha</th>
+                <th>telefono</th>
+            </div>
+        </thead>
+        <tbody id="tCuerpo">
+              
+        </tbody>
+    
+    
+    
+    </table>
 </body>
 </html>                                 
