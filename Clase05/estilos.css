@@ -11,7 +11,15 @@
     input[type=button]:hover{
         background: lightseagreen;
     }
-
+.btnO{
+    height: 40px;
+    background: seagreen;
+    font-weight: bold;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 8px 0;
+}
 .txt{
     border-radius: 5px;
     width: 97%;
