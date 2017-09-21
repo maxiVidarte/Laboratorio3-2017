@@ -20,7 +20,6 @@ app.get("/personas",function(req,res){
 
 
 app.post("/nuevaPersona",function(req,res){
-    console.log("entre aca vieja");
     setTimeout(function(){
         console.log("Llego al servidor "+JSON.stringify(req.body));
         console.log((req.body.nombre!= undefined &&req.body.nombre!= "") );
@@ -36,7 +35,7 @@ app.post("/nuevaPersona",function(req,res){
         }
         console.log("Sale del servidor "+"{'respuesta': 'error'}")
         res.send({'respuesta': 'error'});
-    },0000);
+    },2000);
     
 });
 

@@ -78,4 +78,9 @@ function ocultar() {
         getItem("Agregar").hidden = false;
     }
 }
+function eliminar(elemento){
+    var id=elemento.parentNode.getAttribute("id");
+    node=document.getElementById(id);
+    node.parentNode.removeChild(node);
+}
 window.onload = listado;

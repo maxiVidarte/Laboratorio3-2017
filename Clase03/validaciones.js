@@ -12,14 +12,13 @@ function validarCampos(){
     }
     if(confirm("Esta seguro que desea agregar una persona") == true){
         var tCuerpo = getItem("tCuerpo");
-
+        console.log(tCuerpo.innerHTML);
         tCuerpo.innerHTML = tCuerpo.innerHTML + 
         "<tr><td>"+nombre+"</td>" + 
         "<td>"+apellido+"</td>" +
         "<td><a href=''>borrar</a></td></tr>";
     }
 }
-
 function getItem(identificador){
 
 return document.getElementById(identificador);
