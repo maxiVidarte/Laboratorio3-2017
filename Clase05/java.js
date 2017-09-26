@@ -17,34 +17,39 @@ var callback = function () {
     if (xmlHttp.readyState === 4) {
         if (xmlHttp.status === 200) {
             var miArray = JSON.parse(xmlHttp.response);
-            for (var index = 0; index < miArray.length; index++) {
-                var element = miArray[index];
-                var tCuerpo = getItem("tCuerpo");
+            if (miArray.respuesta == "ok") {
+                console.log(miArray);
+            }
+            else {
+                for (var index = 0; index < miArray.length; index++) {
+                    var element = miArray[index];
+                    var tCuerpo = getItem("tCuerpo");
 
-                tCuerpo.innerHTML = tCuerpo.innerHTML +
-                    "<tr><td>" + element.nombre + "</td>" +
-                    "<td>" + element.apellido + "</td>" +
-                    "<td>" + element.fecha + "</td>" +
-                    "<td>" + element.telefono + "</td>" +
-                    "<td><a href=''>borrar</a></td></tr>";
+                    tCuerpo.innerHTML = tCuerpo.innerHTML +
+                        "<tr><td>" + element.nombre + "</td>" +
+                        "<td>" + element.apellido + "</td>" +
+                        "<td>" + element.fecha + "</td>" +
+                        "<td>" + element.telefono + "</td>" +
+                        "<td><a href=''>borrar</a></td></tr>";
+                }
             }
 
         }
     }
 }
 function peticionPost() {
-    if(confirm("Esta seguro que desea agregar una persona?")==true){
-    xmlHttp.onreadystatechange = callback;
-    var url = valida();
-    xmlHttp.open("POST", "http://localhost:3000/nuevaPersona", true);
-    xmlHttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xmlHttp.send(url);
+    if (confirm("Esta seguro que desea agregar una persona?") == true) {
+        xmlHttp.onreadystatechange = callback;
+        var url = valida();
+        xmlHttp.open("POST", "http://localhost:3000/nuevaPersona", true);
+        xmlHttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xmlHttp.send(url);
     }
-    else{
-        getItem("txtNombre").value ="";
-        getItem("txtApellido").value="";
-        getItem("txtFecha").value="";
-        getItem("txtTelefono").value="";
+    else {
+        getItem("txtNombre").value = "";
+        getItem("txtApellido").value = "";
+        getItem("txtFecha").value = "";
+        getItem("txtTelefono").value = "";
     }
 }
 function valida() {
@@ -77,10 +82,5 @@ function ocultar() {
         getItem("btnOcultar").value = "ocultar";
         getItem("Agregar").hidden = false;
     }
-}
-function eliminar(elemento){
-    var id=elemento.parentNode.getAttribute("id");
-    node=document.getElementById(id);
-    node.parentNode.removeChild(node);
 }
 window.onload = listado;
