@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Home - Blog</title><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Estilo CSS Propio -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#bienvenida").html("Hola "+localStorage.getItem("Email"));
+            $('#formulario').hide();
+            $('#spinner').hide();
+		    $("#postear").on("click", function() {
+			    $('#formulario').show();
+            });
+        });  
+    </script>
+    
+    </head>
+    <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h1 id="bienvenida">Hola usuario</h1>                        
+                    </div>
+                    <div class="col-sm-3">
+                    <button id="postear" class="btn btn-info">Nuevo Post</button>                 
+                    </div>                  
+                </div>
+                
+                <div id="formulario" class="row">
+                        <div class="form-group">
+                            <label for="titulo">Título del Post:</label>
+                            <input type="text" name="titulo" id="titulo"class="form-control">
+                            <label for="cabecera">Cabecera del Post:</label>
+                            <input type="text" name="cabecera" id="cabecera"class="form-control">
+                            <label for="texto">Texto del Post:</label>
+                            <input type="text" name="texto" id="texto"class="form-control">
+                        </div>
+                        <input type="button" onclick="postearBlog()" class="btn btn-success" value="Postear" /> 
+                        <input type="button" onclick="cancelarPost()" class="btn btn-danger" value="Cancelar" />
+                </div>
+
+                <div id="spinner" class="row">
+                    <img src="imagenes/giphy.gif" alt="">
+                </div>
+
+                <div id="posteos" class="row">
+                    <div class="col-sm-4">
+                        <h1>Un Post Anterior</h1>
+                        <h3>Este fue un post viejo</h3>
+                        <p>Contenido del post. </p>
+                        <p>Posteado por UTN-FRA el 10/05/2017</p>                    
+                    </div>
+                </div>
+    </body>
+</html>

@@ -16,31 +16,38 @@ var xmlHttp = new XMLHttpRequest();
 var callback = function () {
     if (xmlHttp.readyState === 4) {
         if (xmlHttp.status === 200) {
+            
             var miArray = JSON.parse(xmlHttp.response);
             if (miArray.respuesta == "ok") {
-                console.log(miArray);
+               document.location.reload();
             }
             else {
                 for (var index = 0; index < miArray.length; index++) {
                     var element = miArray[index];
+                    localStorage.setItem(index,JSON.stringify(element));
                     var tCuerpo = getItem("tCuerpo");
-
                     tCuerpo.innerHTML = tCuerpo.innerHTML +
                         "<tr><td>" + element.nombre + "</td>" +
                         "<td>" + element.apellido + "</td>" +
                         "<td>" + element.fecha + "</td>" +
                         "<td>" + element.telefono + "</td>" +
-                        "<td><a href=''>borrar</a></td></tr>";
+                        "<td><input type='button' name='borrar' id='btnBorrar' value='borrar' onclick='borrar("+index+")'><br><br></td></tr>";
+                        
                 }
+               
             }
+            
 
         }
     }
 }
+function borrar(linea){
+    
+}
 function peticionPost() {
     if (confirm("Esta seguro que desea agregar una persona?") == true) {
         xmlHttp.onreadystatechange = callback;
-        var url = valida();
+        var url = "nombre=" + getItem("txtNombre").value + "&apellido=" + getItem("txtApellido").value + "&fecha=" + getItem("txtFecha").value + "&telefono=" + getItem("txtTelefono").value;
         xmlHttp.open("POST", "http://localhost:3000/nuevaPersona", true);
         xmlHttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xmlHttp.send(url);
@@ -52,17 +59,7 @@ function peticionPost() {
         getItem("txtTelefono").value = "";
     }
 }
-function valida() {
-    var nombre = getItem("txtNombre").value;
-    var apellido = getItem("txtApellido").value;
-    var fecha = getItem("txtFecha").value;
-    var telefono = getItem("txtTelefono").value;
-    var usr = "";
-    if (nombre == "" || apellido == "") { }
-    else
-        usr = "nombre=" + nombre + "&apellido=" + apellido + "&fecha=" + fecha + "&telefono=" + telefono;
-    return usr;
-}
+
 function listado() {
     xmlHttp.onreadystatechange = callback;
     xmlHttp.open("GET", "http://localhost:3000/personas", true);
