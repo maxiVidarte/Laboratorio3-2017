@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        function getParameterByName(name, url) {
+    if(!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+    if(!results) return null;
+    if(!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}   
+    window.onload= getParameterByName("","");</script>
+    <title>Blog</title>
+</head>
+<body>
+        
+            <div id="header">
+            </div>
+        
+            <div id="content">
+            </div>
+        
+            <div id="sidebar">
+            </div>
+            
+            <div id="footer">
+                
+            </div>
+        
+        
+        
+        
+        </body>
+</html>

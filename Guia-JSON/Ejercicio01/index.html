@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript">
+        window.onload = function(){
+        var myJSON = '{ "codigoDeBarra":"1234", "nombre":"jabon", "precio":"15.80" }';
+        var myObj = JSON.parse(myJSON);
+        console.log(myObj);
+        alert(myObj.codigoDeBarra +"\n"+myObj.nombre +"\n"+ myObj.precio );
+        }
+    
+    </script>
+    <title>Ejercicio 01</title>
+</head>
+<body>
+</body>
+</html>

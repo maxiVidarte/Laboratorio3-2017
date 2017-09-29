@@ -7,7 +7,7 @@ function EnviarDatos()
 	var datoslogin= {"email":email, "password":password};
 	
 	$.post("http://localhost:1337/login",JSON.stringify(datoslogin),function (data) {
-		console.log(response);
+		
 		if (data.autenticado =="si") {
 			localStorage.setItem("datos",data);
 			window.location.replace(url);

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript">
+        var xhttp = new XMLHttpRequest();
+        function request(){
+            var myJSON = '[ { "codigoDeBarra":"1111", "nombre":"jabon", "precio":"15.80" }]';        
+            var jason = JSON.parse(myJSON);
+            var url = "json=" + JSON.stringify(myJSON);
+            xhttp.onreadystatechange = callback;
+            xhttp.open("POST","http://localhost/Laboratorio3-2017/Guia-JSON/Ejercicio03/mostrarJson.php",true);
+            xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            xhttp.send(url);
+        }
+        window.onload= request;
+        var callback = function(){
+                if(xhttp.readyState == 4 && xhttp.status == 200)
+                {
+                   document.body.innerHTML= xhttp.response;
+                }
+            }
+    </script>
+    <title>Ejercicio 03</title>
+</head>
+<body>
+</body>
+</html>

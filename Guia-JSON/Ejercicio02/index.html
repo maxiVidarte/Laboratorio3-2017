@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript">
+        window.onload = function(){
+        var myJSON = '[ { "codigoDeBarra":"1111", "nombre":"jabon", "precio":"15.80" },{ "codigoDeBarra":"1112", "nombre":"esponja", "precio":"8.50" },{ "codigoDeBarra":"1113", "nombre":"shampoo", "precio":"75.80" }]';        
+        var myObj = JSON.parse(myJSON);
+        for (var index = 0; index < myObj.length; index++) {
+            var element = myObj[index];
+            console.log(element);
+        alert(element.codigoDeBarra +"\n"+element.nombre +"\n"+ element.precio );
+        }
+       
+        }
+    
+    </script>
+    <title>Ejercicio 02</title>
+</head>
+<body>
+</body>
+</html>

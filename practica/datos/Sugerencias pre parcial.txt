@@ -1,0 +1,8 @@
+//Traer funciones hechas para agilizar en el parcial
+
+//Ejemplo
+
+miAjax(url, parametro/s, bool, funcionOk, funcionNotOk)
+
+//Revisar todas las guias y analizar todos los metodos posibles que se puedan generalizar para poder usar despues en el parcial
+

@@ -1,0 +1,3 @@
+Solo en este server porque funciona mal. No poner el request header (Content Type)
+ya que al parecer solo toma strings (hacer los parseos correspondientes 
+para pasarle solo strings)
