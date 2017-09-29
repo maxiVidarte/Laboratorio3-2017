@@ -4,36 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script>
-        function getParameterByName(name, url) {
-    if(!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                    results = regex.exec(url);
-    if(!results) return null;
-    if(!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}   
-    window.onload= getParameterByName("","");</script>
+    <script src="javascript/script.js"></script>
     <title>Blog</title>
 </head>
 <body>
-        
-            <div id="header">
-            </div>
-        
-            <div id="content">
-            </div>
-        
-            <div id="sidebar">
-            </div>
-            
-            <div id="footer">
-                
-            </div>
-        
-        
-        
-        
-        </body>
+    <div><input class="btnO" type="button" id="btnOcultar" value="Postear" onclick=ocultar() ></div>
+    <div class="divInputs" id="Posteo" hidden="true">
+        <label class="lbl"for="title">title: </label><br>
+        <input class="txt" type="text" name="title" id="title" placeholder="title..." ><br><br>
+        <label class="lbl"for="header">header: </label><br>
+        <input class="txt" type="text" name="header" id="header" placeholder="header..." ><br><br>
+        <label class="lbl"for="posttext">post text</label><br>
+        <input class="txt" type="text" name="fecha" id="txtposteo" placeholder="texto..." ><br><br>
+        <input class="btn" type="button" name="guardar" id="btnGuardar" value="Guardar" onclick="NuevoPost()"><br><br>
+    </div>     
+    <div class="container" id="txtpost"></div>
+</body>
 </html>
