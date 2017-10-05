@@ -34,7 +34,13 @@ var callback = function(){
 var callback2 = function(){
     if (xmlHttp.readyState === 4) {
         if (xmlHttp.status === 200) {
-            console.log(xmlHttp.response);
+            if(xmlHttp.response = "error"){
+                document.getElementById("tema1").style= "border-color:red";
+                document.getElementById("titulo").style= "border-color:red";
+                document.getElementById("noticia").style= "border-color:red";
+                var cuerpo = document.getElementById("txtError");
+                cuerpo.innerHTML = '<FONT COLOR="red">Error. Falto ingresar un dato </FONT>';
+            }  
         }
     }
 }
@@ -42,7 +48,8 @@ function NuevaNoticia(){
     
     xmlHttp.onreadystatechange = callback2;
     var mijson = '{ "tema":"'+ document.getElementById("tema1").value+'","titulo":"'+ document.getElementById("titulo").value+'","noticia":"'+ document.getElementById("noticia").value+'","email":"'+localStorage.getItem("usuario")+'" }';
-    xmlHttp.open("POST","http://localhost:3000/login",true);
+    
+    xmlHttp.open("POST","http://localhost:3000/nuevaNoticia",true);
     xmlHttp.setRequestHeader("content-type", "application/json");
     xmlHttp.send(mijson);
     
@@ -57,7 +64,7 @@ function ocultar() {
         else {
             document.getElementById("btnOcultar").value = "ocultar";
             document.getElementById("nuevaNot").hidden = false;
-            document.getElementById("nuevaNot").modal("hide");
+            
         }
     }
 window.onload = listado;
