@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/funcion2.js"></script>
+    <title>Noticias</title>
+</head>
+<body>
+    <header id="tema">
+        <h1>Ultimas Noticias</h1>
+    </header>
+<input type="button" id="btnOcultar" onclick="ocultar()" value="Nueva Noticia">
+<div  id="nuevaNot" hidden="true">
+        <label class="lbl"for="tema1">tema: </label><br>
+        <input class="txt" type="text" name="tema1" id="tema1" placeholder="nuevo tema..." ><br><br>
+        <label class="lbl"for="titulo">titulo noticia: </label><br>
+        <input class="txt" type="text" name="titulo" id="titulo" placeholder="titulo de la noticia..." ><br><br>
+        <label class="lbl"for="posttext">noticia</label><br>
+        <input class="txt" type="text" name="noticia" id="noticia" placeholder="texto..." ><br><br>
+        <input class="btn" type="button" name="guardar" id="btnGuardar" value="Guardar" onclick="NuevaNoticia()"><br><br>
+
+</div>
+    <section id="titynot"></section>
+</body>
+</html>
