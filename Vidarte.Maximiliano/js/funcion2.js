@@ -16,11 +16,11 @@ var callback = function(){
            tbody.innerHTML = tbody.innerHTML +"<article>";
            for (var index = 0; index < miArray.length; index++) {
                var element = miArray[index];
-               tcuerpo.innerHTML = tcuerpo.innerHTML+ '<li><a href="#"'+element.tema+'>'+element.titulo+'</li>';
-               tbody.innerHTML = tbody.innerHTML +"<h2>"+element.titulo+"</h2>"+"<p>"+element.noticia+"</p>"+"<p>"+element.fecha+"</p>";
+               tcuerpo.innerHTML = tcuerpo.innerHTML+ '<li><a href="#'+element.titulo+'"'+element.tema+'>'+element.titulo+'</li>';
+               tbody.innerHTML = tbody.innerHTML +'<div><h2 id="'+element.titulo+'">'+element.titulo+"</h2>"+"<p>"+element.noticia+"</p>"+"<p >"+element.fecha+"</p></div>";
            }
            tbody.innerHTML = tbody.innerHTML +"</article>";
-           tcuerpo.innerHTML = tcuerpo.innerHTML+ "</ul> <nav>";
+           tcuerpo.innerHTML = tcuerpo.innerHTML+ "</ul> </nav>";
            if(localStorage.getItem("type")=="Admin"){
             document.getElementById("btnOcultar").hidden = false;
            }
@@ -32,15 +32,25 @@ var callback = function(){
     }
 }
 var callback2 = function(){
+    document.getElementById("spinner").hidden=false;
+    document.getElementById("nuevaNot").hidden=true;
     if (xmlHttp.readyState === 4) {
         if (xmlHttp.status === 200) {
-            if(xmlHttp.response = "error"){
+            var respuesta = JSON.parse(xmlHttp.response);
+            
+            if(respuesta.type == "error"){
+                document.getElementById("spinner").hidden=true;
+                document.getElementById("nuevaNot").hidden=false;
                 document.getElementById("tema1").style= "border-color:red";
                 document.getElementById("titulo").style= "border-color:red";
                 document.getElementById("noticia").style= "border-color:red";
+                document.getElementById("btnGuardar").className= "btn btn-danger";
                 var cuerpo = document.getElementById("txtError");
                 cuerpo.innerHTML = '<FONT COLOR="red">Error. Falto ingresar un dato </FONT>';
-            }  
+            }
+            else{
+                location.reload();
+            }
         }
     }
 }
