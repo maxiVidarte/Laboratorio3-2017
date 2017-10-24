@@ -1032,36 +1032,64 @@ var datos =[
   // Retornar un objeto que contenga solo el nombre y la edad (name y age) del usuario 
   // mas grande.
   lib.olderUser = function () {
-    
-
+    let total=0;
+    var n = datos.reduce(function(total,persona){
+      if(total < persona.age){
+        return total=persona.age;
+      }
+      else{
+        return total;
+      }
+    },0);
+  
+    return datos.filter(function(persona){
+      if(persona.age===n)
+      return persona;
+    }).map(function(persona){return {"nombre":persona.name,"edad":persona.age}});
   };
-  var n  = nums.reduce(function(total,num){
-    return total+=num;
-  },0);
-
-console.log("Sumatoria de numeros con reduce: ",n);
 
   // Retornar el promedio de edad de los usuarios (number)
   lib.userAgeAverage = function () {
-  
+    var cont=0;
+    var n=datos.reduce(function(total,persona){
+      cont++;
+      return total+=persona.age;
+    },0);
+    return n/cont;
   };
 
   // Retornar el promedio de edad de los usuarios hombres (number)
   lib.userMaleAgeAverage = function () {
-    
+    var cont=0;
+    var n = datos.filter(function(persona){
+      if(persona.gender==="male")
+        return persona;
+    }).reduce(function(total,persona){
+      cont++;
+      return total+=persona.age;
+    },0);
+    return n/cont;
   
   };
 
   // Retornar el promedio de edad de los usuarios mujeres (number)
   lib.userFemaleAgeAverage = function () {
-  
+  var cont=0;
+    var n = datos.filter(function(persona){
+      if(persona.gender==="female")
+        return persona;
+    }).reduce(function(total,persona){
+      cont++;
+      return total+=persona.age;
+    },0);
+    return n/cont;
   };
 
   // Retornar un objeto  de etiquetas (tags)
   // cada property del objeto es el nombre de una etiqueta
-  // y el value es la cantidad de usuarios que tienene esa etiqueta
+  // y el value es la cantidad de usuarios que tiene en esa etiqueta
   lib.tagCloud = function () {
-    
+        //preguntar al profesor
   };
   
   console.log(lib);
