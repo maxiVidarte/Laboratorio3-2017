@@ -1,0 +1,5 @@
+$("#id").html() == console.getelementbyid("#id").innnerHTML;
+$("#id").val() == console.getelementbyid("#id").val();
+
+http://mockaroo.com/ genera un json
+http://www.mocky.io/ genera el server virtual
