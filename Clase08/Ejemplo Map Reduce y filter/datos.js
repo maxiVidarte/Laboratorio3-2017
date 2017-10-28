@@ -1090,6 +1090,7 @@ var datos =[
   // y el value es la cantidad de usuarios que tiene en esa etiqueta
   lib.tagCloud = function () {
         //preguntar al profesor
+        //hacer un map que recoja los tags y luego con el reduce vas sumandolos.
   };
   
   console.log(lib);
