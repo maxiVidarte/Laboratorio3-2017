@@ -1,0 +1,1 @@
+//cuando me aparece el error iterable tengo que poner en tsc nombre.ts --target es2015

@@ -1,1 +1,0 @@
-//crear varios ts por cada clase
