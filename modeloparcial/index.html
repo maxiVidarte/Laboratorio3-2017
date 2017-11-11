@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+       
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">lista</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Mostrar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Agregar</a>
+      </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Ver
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Solo los DBA</a>
+        <a class="dropdown-item" href="#">% de programadores</a>
+        <a class="dropdown-item" href="#">Todos los mails</a>
+      </div>
+    </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="#">LogIn</a>
+      </li>
+    </ul>
+  </nav>
+ <div>
+  <div class="container  form-group" id="alta">
+      <h1>ALTA</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quis possimus reiciendis mollitia alias dolor, ab, harum corrupti quisquam autem est? Eum itaque placeat ullam deleniti ipsa modi inventore explicabo!</p>
+    <label for="txtNombre">Nombre:</label>
+    <input type="text" class="form-control" id="txtNombre">
+    <label for="txtApellido">Apellido:</label>
+    <input type="text" class="form-control"id="txtApellido">
+    <label for="txtEmail">Email:</label>
+    <input type="text" class="form-control" id="txtEmail">
+    <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Profesion <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">DBA</a></li>
+              <li><a href="#">Diseñador</a></li>
+              <li><a href="#">Programador</a></li>
+            </ul>
+          </div>
+</div>
+  
+<h2>Listado</h2>
+  <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Profesion</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td>DBA</td>
+        <td> <a href="#" class="glyphicon glyphicon-print"></a></td>
+        
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+        <td>DBA</td>
+        <td><span class="glyphicon glyphicon-name"></span></td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+        <td>DBA</td>
+        <td><span class="glyphicon glyphicon-name"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  </div>
+</div>
+
+</body>
+</html>

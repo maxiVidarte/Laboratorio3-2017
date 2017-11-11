@@ -1,7 +1,7 @@
 ///<reference path="../node_modules/@types/jquery/index.d.ts"/>
 function EnviarDatos() {
     var $function = $.ajax({
-        url: "c:\Users\alumno\Desktop\maxi\Clase10bis\index.html",
+        url: "./index.html",
         type: "post",
         data: {
             email: $("#email").val(),
