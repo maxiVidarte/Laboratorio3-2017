@@ -1,3 +1,4 @@
+
 namespace Personas{
 export class Persona{
     public nombre:string;
