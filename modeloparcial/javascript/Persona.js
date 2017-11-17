@@ -7,7 +7,7 @@ var Personas;
             this.email = email;
         }
         MostrarPersona() {
-            return "nombre:" + this.nombre + "apellido:" + this.apellido + "email:" + this.email;
+            return "nombre: " + this.nombre + "," + "apellido: " + this.apellido + "," + "email: " + this.email;
         }
     }
     Personas.Persona = Persona;

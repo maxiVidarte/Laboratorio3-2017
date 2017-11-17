@@ -4,15 +4,17 @@
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
-  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="javascript/Persona.js"></script>
-  <script src="javascript/Empleado.js"></script>
-  <script src="javascript/funciones.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="javascript/Persona.js"></script>
+  <script src="javascript/Empleado.js"></script>
+  <script src="javascript/funciones.js"></script>
 </head>
 
 <body>
@@ -78,7 +80,7 @@
         <h2>Mostrar</h2>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia atque aspernatur obcaecati molestias, perferendis
           ipsum blanditiis dignissimos cum ratione quia incidunt nemo porro autem hic dicta nesciunt impedit quam odit!</p>
-        <table class="table">
+        <table class="table" id="tabla">
           <thead>
             <tr>
               <th>Nombre</th>
@@ -88,15 +90,15 @@
               <th>Accion</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="cuerpo">
             <tr>
               <td>John</td>
               <td>Doe</td>
               <td>john@example.com</td>
               <td>DBA</td>
               <td>
-                <a href="#" class="glyphicon glyphicon-trash"></a>
-                <a href="#" onclick="Modificar()" class="glyphicon glyphicon-download"></a>
+                <a href="#" id="borrarUser" onclick="Borrar(John)" class="glyphicon glyphicon-trash"></a>
+                <a href="#" id="modificarUser" onclick="Modificar(this)" class="glyphicon glyphicon-download"></a>
               </td>
     
             </tr>

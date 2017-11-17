@@ -11,7 +11,7 @@ export class Persona{
         this.email = email;
         }
         MostrarPersona():string{
-            return "nombre:"+this.nombre+"apellido:"+this.apellido+"email:"+this.email;
+            return "nombre: "+this.nombre+","+"apellido: "+this.apellido+","+"email: "+this.email;
         }
 
     }

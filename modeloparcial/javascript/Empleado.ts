@@ -5,10 +5,11 @@ namespace Personas{
     
             constructor(nombre:string,apellido:string,email:string,profesion:string){
                 super(nombre,apellido,email);
+                this.profesion= profesion;
             }
     
             MostrarEmpleado():string{
-                return super.MostrarPersona()+"profesion:"+this.profesion;
+                return '{'+super.MostrarPersona()+","+"profesion: "+this.profesion+'}';
             }
     
         }
