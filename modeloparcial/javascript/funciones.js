@@ -3,13 +3,6 @@
 ///<reference path="../node_modules/@types/jquery/index.d.ts"/>
 var datos = [];
 function Mostrar() {
-    var cuerpo = $("#cuerpo");
-    for (let i = 0; i < datos.length; i++) {
-        cuerpo.html("<tr><td>" + datos[i] + "</td>" +
-            "<td>" + datos[i] + "</td>" +
-            "<td>" + datos[i] + "</td>" +
-            "<td>" + datos[i] + "</td></tr>");
-    }
 }
 function Modificar(valor) {
     console.log(valor);

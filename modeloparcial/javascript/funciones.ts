@@ -1,11 +1,11 @@
 ///<reference path="./Persona.ts"/>
 ///<reference path="./Empleado.ts"/>
 ///<reference path="../node_modules/@types/jquery/index.d.ts"/>
-var datos:Array<string>=[];
+var datos=[];
+
 
 function Mostrar(){
 
-    
 }
 function Modificar(valor){
     console.log(valor);
