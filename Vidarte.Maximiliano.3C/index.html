@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Segundo Parcial</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="js/Persona.js"></script>
+  <script src="js/Empleado.js"></script>
+  <script src="js/Manejadora.js"></script>
+</head>
+
+<body>
+    <h1 class="title" >Vidarte Maximiliano</h1>
+  <div class="header">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Lista</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li>
+            <a onclick="mostrarEmpleados()">Mostrar</a>
+          </li>
+          <li>
+            <a href="#">Formulario</a>
+          </li>
+          <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ver
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a onclick="promedioEdadPorHorario()">Promedio</a></li>
+                  <li><a data-toggle="modal" data-target="#myModal" onclick="filtrarPorHorario()">Filtrar</a></li>
+                  <li><a onclick="SoloNYA()">Solo nombre y apellido</a></li>
+                </ul>
+              </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row content col-xs-12 col-sm-4  col-md-4 col-lg-4">
+        <h1>Alta Empleado</h1>
+        <label for="txtNombre">Nombre:</label>
+        <input type="text" class="form-control" id="txtNombre">
+        <label for="txtApellido">Apellido:</label>
+        <input type="text" class="form-control" id="txtApellido">
+        <label for="txtEdad">Edad:</label>
+        <input type="number" class="form-control" id="txtEdad">
+        <label for="txtLegajo">Legajo:</label>
+        <input type="number" class="form-control" id="txtLegajo">
+        <label for="txtHorario">Horario:</label>
+        <select class="form-control" id="txtHorario">
+          <option>mañana</option>
+          <option>tarde</option>
+          <option>noche</option>
+        </select>
+        <input type="button" onclick="limpiarFormulario()" class="btn btn-danger" id="Cancelar" value="Cancelar">
+        <input type="button" onclick="agregarEmpleado()" class="btn btn-success" id="GuardarPersona" value="Aceptar" >
+      </div>
+      <div class="row content col-xs-12 col-sm-offset-1 col-sm-7  col-md-offset-1 col-md-7 col-lg-offset-1 col-lg-7">
+        <h2>Mostrar</h2>
+        <table class="table" id="tabla">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Edad</th>
+              <th>Legajo</th>
+              <th>Turno</th>
+              <th>Accion</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo">
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="container">
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Filtrar</h4>
+          </div>
+          <div class="modal-body">
+            <p>Horario:</p>
+          </div>
+          <div class="modal-footer">
+            <select class="form-control" id="txtOpcion">
+              <option>mañana</option>
+              <option>tarde</option>
+              <option>noche</option>
+            </select>
+            <input type="button" data-dismiss="modal" class="btn btn-danger" id="CancelarModal" value="Cancelar">
+            <input type="button" onclick="filtrarPorHorario()" class="btn btn-success" data-dismiss="modal" id="GuardarPersona" value="Aceptar" >
+          </div>
+        </div>
+    
+      </div>
+    </div>
+</body>
+
+</html>
