@@ -5,7 +5,7 @@ var datos = [];
 function agregarEmpleado() {
     let nombre = $('#txtNombre').val().toString();
     let apellido = $('#txtApellido').val().toString();
-    let edad = $('#txtEdad').val().toString();
+    let edad = Number($('#txtEdad').val());
     let legajo = parseInt($('#txtLegajo').val().toString());
     let horario = $('#txtHorario').val().toString();
     let miEmpleado = new Personas.Empleado(nombre, apellido, edad, legajo, horario);
@@ -70,7 +70,7 @@ function filtrarPorHorario() {
     });
 }
 function promedioEdadPorHorario() {
-    let opcion = $("#txtOpcion").val();
+    let opcion = $("#txtOpcion2").val();
     let miArray = localStorage.getItem("datos");
     let miJson = JSON.parse(miArray);
     let cont = 0;
@@ -81,7 +81,8 @@ function promedioEdadPorHorario() {
         cont++;
         return total += persona.edad;
     }, 0);
-    console.log(hola);
+    let promedio = hola / cont;
+    $("#contenidoModal").html(promedio.toString());
 }
 function SoloNYA() {
     let miArray = localStorage.getItem("datos");
