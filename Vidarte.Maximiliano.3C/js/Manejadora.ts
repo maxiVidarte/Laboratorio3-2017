@@ -13,6 +13,7 @@ function agregarEmpleado():void{
     let myJson:string = JSON.stringify(datos);
     localStorage.setItem("datos",myJson);
     limpiarFormulario();
+    mostrarEmpleados();
 }
 function limpiarFormulario():void{
     $('#txtNombre').val('');
@@ -26,13 +27,13 @@ function mostrarEmpleados():void{
     let miJson = JSON.parse(miArray);
     var cuerpo =$("#cuerpo").html(""); 
     miJson.map(function(persona){
-       $("#cuerpo").append("<tr><td>"+persona.nombre+"</td>"+"<td>"+persona.apellido+"</td>"+"<td>"+persona.edad+"</td>"+"<td>"+persona.legajo+"</td>"+"<td>"+persona.horario+"</td>"+"<td><a href='' onclick='Eliminar("+persona.legajo+")' class='glyphicon glyphicon-trash'></a><a href='' onclick='Modificar("+persona.legajo+")' class='glyphicon glyphicon-download'></a> </td>");
+       $("#cuerpo").append("<tr><td>"+persona.nombre+"</td>"+"<td>"+persona.apellido+"</td>"+"<td>"+persona.edad+"</td>"+"<td>"+persona.legajo+"</td>"+"<td>"+persona.horario+"</td>"+"<td><a onclick='Eliminar("+persona.legajo+")' class='glyphicon glyphicon-trash'></a><a onclick='Modificar("+persona.legajo+")' class='glyphicon glyphicon-download'></a> </td>");
         
         return persona;});
     
     
 }
-function modificar(i:number):void{
+function Modificar(i:number):void{
     let miArray = localStorage.getItem("datos");
     let miJson = JSON.parse(miArray);
     miJson.filter(function(persona){ if(persona.legajo==i)return persona;
@@ -43,10 +44,16 @@ function modificar(i:number):void{
         $('#txtLegajo').val(persona.legajo);
         $('#txtHorario').val(persona.horario);
         return persona;
-    }); 
+    });
+    mostrarEmpleados();
 }
-function eliminar(i:number):void{
-    console.log("entro en eliminar");
+function Eliminar(i:number):void{
+    let miArray = localStorage.getItem("datos");
+    let miJson = JSON.parse(miArray);
+    miArray = miJson.filter(function(persona){if(persona.legajo!=i) return persona;});
+    miJson = JSON.stringify(miArray);
+    localStorage.setItem("datos",miJson);
+    mostrarEmpleados();
 }
 function filtrarPorHorario(){
     let opcion = $("#txtOpcion").val();
@@ -64,7 +71,19 @@ function filtrarPorHorario(){
     
 }
 function promedioEdadPorHorario(){
-    console.log("entro en promedioEdadPorHorario");
+    let opcion =$("#txtOpcion").val();
+    let miArray = localStorage.getItem("datos");
+    let miJson = JSON.parse(miArray);
+    let cont = 0;
+    let hola = miJson.filter(function(persona){
+        if(persona.horario==opcion)
+          return persona;
+      }).reduce(function(total,persona){
+        cont++;
+        return total+=persona.edad;
+      },0);
+      console.log(hola);
+      
 }
 function SoloNYA(){
     let miArray = localStorage.getItem("datos");

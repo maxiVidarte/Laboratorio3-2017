@@ -35,8 +35,8 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ver
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a onclick="promedioEdadPorHorario()">Promedio</a></li>
-                  <li><a data-toggle="modal" data-target="#myModal" onclick="filtrarPorHorario()">Filtrar</a></li>
+                  <li><a data-toggle="modal" data-target="#myModal2">Promedio</a></li>
+                  <li><a data-toggle="modal" data-target="#myModal">Filtrar</a></li>
                   <li><a onclick="SoloNYA()">Solo nombre y apellido</a></li>
                 </ul>
               </li>
@@ -102,6 +102,31 @@
             </select>
             <input type="button" data-dismiss="modal" class="btn btn-danger" id="CancelarModal" value="Cancelar">
             <input type="button" onclick="filtrarPorHorario()" class="btn btn-success" data-dismiss="modal" id="GuardarPersona" value="Aceptar" >
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    <div id="myModal2" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Promedio</h4>
+          </div>
+          <div class="modal-body">
+            <p>Horario:</p>
+          </div>
+          <div class="modal-footer">
+            <select class="form-control" id="txtOpcion">
+              <option>mañana</option>
+              <option>tarde</option>
+              <option>noche</option>
+            </select>
+            <input type="button" data-dismiss="modal" class="btn btn-danger" id="CancelarModal" value="Cancelar">
+            <input type="button" onclick="promedioEdadPorHorario()" class="btn btn-success"  id="GuardarPersona" value="Aceptar" >
+            <div class="conteiner" id="contenidoModal"></div>
           </div>
         </div>
     
