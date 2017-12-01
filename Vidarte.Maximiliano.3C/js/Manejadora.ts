@@ -18,6 +18,7 @@ function agregarEmpleado():void{
     datos.push(miEmpleado); 
     let myJson:string = JSON.stringify(datos);
     localStorage.setItem("datos",myJson);
+    getLocal = localStorage.getItem("datos");
     limpiarFormulario();
     mostrarEmpleados();
 }
@@ -62,7 +63,21 @@ function Modificar(i:number):void{
     });
 }
 function ModificarPersona(i:number){
-    console.log("entro aca " + i);
+    let miArray = localStorage.getItem("datos");
+    let miJson = JSON.parse(miArray);
+    miArray = miJson.map(function(persona){ 
+        if(persona.legajo==i){
+        persona.nombre = $("#txtNombre").val();
+        persona.apellido = $("#txtApellido").val();
+        persona.edad = $("#txtEdad").val();
+        persona.legajo = $("#txtLegajo").val();
+        persona.horario = $("#txtHorario").val();
+        }
+        return persona;
+    });
+    miJson = JSON.stringify(miArray);
+    localStorage.setItem("datos",miJson);
+    mostrarEmpleados();
 } 
 function Eliminar(i:number):void{
     let miArray = localStorage.getItem("datos");
@@ -101,7 +116,8 @@ function promedioEdadPorHorario(){
         return total+=persona.edad;
       },0 );
       let promedio:number = hola/cont;
-        $("#contenidoModal").html(promedio.toString());      
+      $("#Resultado").show();  
+      $("#Resultado").html(promedio.toString());      
 }
 function SoloNYA(){
     let miArray = localStorage.getItem("datos");
