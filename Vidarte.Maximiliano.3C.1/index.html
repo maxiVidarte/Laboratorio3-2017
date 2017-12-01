@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Segundo Parcial</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="js/Vehiculo.js"></script>
+  <script src="js/Auto.js"></script>
+  <script src="js/Manejadora.js"></script>
+</head>
+
+<body>
+    <h1 class="title" >Vidarte Maximiliano</h1>
+  <div class="header">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">Lista</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li>
+            <a onclick="mostrarAutos()">Mostrar</a>
+          </li>
+          <li>
+            <a>Agregar</a>
+          </li>
+          <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ver
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a data-toggle="modal" data-target="#myModal2">Filtrar por modelo</a></li>
+                  <li><a data-toggle="modal" data-target="#myModal">el auto mas caro</a></li>
+                  <li><a onclick="SoloNYA()">Solo marca y color</a></li>
+                </ul>
+              </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row content col-xs-12 col-sm-4  col-md-4 col-lg-4">
+        <h1 id="tituloAlta">Alta Auto</h1>
+        <label for="txtMarca">Marca:</label>
+        <input type="text" class="form-control" id="txtMarca">
+        <label for="txtPrecio">Precio:</label>
+        <input type="number" class="form-control" id="txtPrecio">
+        <label for="txtModelo">Modelo:</label>
+        <select class="form-control" id="txtModelo"></select>
+        <label for="txtColor">Color:</label>
+        <select class="form-control" id="txtColor">
+          <option>blanco</option>
+          <option>negro</option>
+          <option>rojo</option>
+          <option>azul</option>
+          <option>gris</option>
+        </select>
+        <button onclick="limpiarFormulario()" class="btn btn-danger" id="Cancelar">Cancelar <span class="glyphicon glyphicon-remove-circle"></span></button>
+        <button onclick="agregarAuto()" class="btn btn-success" id="GuardarAuto">Aceptar <span class="glyphicon glyphicon-floppy-disk" ></span></button>
+      </div>
+      <div class="row content col-xs-12 col-sm-offset-1 col-sm-7  col-md-offset-1 col-md-7 col-lg-offset-1 col-lg-7">
+        <h2>Mostrar</h2>
+        <table class="table" id="tabla">
+          <thead>
+            <tr>
+              <th>Marca</th>
+              <th>Color</th>
+              <th>Modelo</th>
+              <th>Precio</th>
+              <th>Accion</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo">
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="container">
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">El auto mas caro</h4>
+          </div>
+          <div class="modal-body">
+            <p>Modelo:</p>
+          </div>
+          <div class="modal-footer">
+            <select class="form-control" id="txtOpcion"></select>
+            <input type="button" data-dismiss="modal" class="btn btn-danger" id="CancelarModal" value="Cancelar">
+            <input type="button" onclick="promedioMasCaro()" class="btn btn-success" data-dismiss="modal" id="GuardarAuto1" value="Aceptar" >
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    <div id="myModal2" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">filtrar</h4>
+          </div>
+          <div class="modal-body">
+            <p>Modelo:</p>
+          </div>
+          <div class="modal-footer">
+            <select class="form-control" id="txtModelo2"></select>
+            <input type="button" data-dismiss="modal" class="btn btn-danger" id="CancelarModal" value="Cancelar">
+            <input type="button" onclick="filtrarPorModelo()" class="btn btn-success" data-dismiss="modal" id="GuardarAuto" value="Aceptar" >
+          </div>
+        </div>
+    
+      </div>
+    </div>
+</body>
+
+</html>
