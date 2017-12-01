@@ -2,14 +2,20 @@
 ///<reference path="./Empleado.ts"/>
 ///<reference path="../node_modules/@types/jquery/index.d.ts"/>
 var datos:Array<Personas.Empleado>=[];
+var getLocal = localStorage.getItem("datos");
 function agregarEmpleado():void{
+    let miArray;
+    if(getLocal != null){
+        miArray = localStorage.getItem("datos");
+        datos = JSON.parse(miArray);
+    }
     let nombre:string = $('#txtNombre').val().toString();
     let apellido:string = $('#txtApellido').val().toString();
     let edad:number= Number($('#txtEdad').val());
     let legajo:number=parseInt($('#txtLegajo').val().toString());
     let horario:string = $('#txtHorario').val().toString();
     let miEmpleado:Personas.Empleado = new Personas.Empleado(nombre,apellido,edad,legajo,horario);
-    datos.push(miEmpleado);
+    datos.push(miEmpleado); 
     let myJson:string = JSON.stringify(datos);
     localStorage.setItem("datos",myJson);
     limpiarFormulario();
@@ -23,17 +29,26 @@ function limpiarFormulario():void{
     $('#txtHorario').val('mañana');
 }
 function mostrarEmpleados():void{
-    let miArray = localStorage.getItem("datos");
-    let miJson = JSON.parse(miArray);
+    if(getLocal != null){
+    let datos = localStorage.getItem("datos");
+    let miJson = JSON.parse(datos);
     var cuerpo =$("#cuerpo").html(""); 
     miJson.map(function(persona){
        $("#cuerpo").append("<tr><td>"+persona.nombre+"</td>"+"<td>"+persona.apellido+"</td>"+"<td>"+persona.edad+"</td>"+"<td>"+persona.legajo+"</td>"+"<td>"+persona.horario+"</td>"+"<td><a onclick='Eliminar("+persona.legajo+")' class='glyphicon glyphicon-trash'></a><a onclick='Modificar("+persona.legajo+")' class='glyphicon glyphicon-download'></a> </td>");
         
-        return persona;});
-    
-    
+        return persona;});    
+    }
+}
+function CancelarModificacion(){
+    limpiarFormulario();
+    $("#Cancelar").attr("onclick","limpiarFormulario()");
+    $("#GuardarPersona").attr("onclick","agregarEmpleado()");
+    $("#GuardarPersona").html("Aceptar <span class='glyphicon glyphicon-floppy-disk' ></span>");
 }
 function Modificar(i:number):void{
+    $("#Cancelar").attr("onclick","CancelarModificacion()");
+    $("#GuardarPersona").attr("onclick","ModificarPersona("+i+")");
+    $("#GuardarPersona").html("Modificar <span class='glyphicon glyphicon-floppy-disk' ></span>");
     let miArray = localStorage.getItem("datos");
     let miJson = JSON.parse(miArray);
     miJson.filter(function(persona){ if(persona.legajo==i)return persona;
@@ -45,8 +60,10 @@ function Modificar(i:number):void{
         $('#txtHorario').val(persona.horario);
         return persona;
     });
-    mostrarEmpleados();
 }
+function ModificarPersona(i:number){
+    console.log("entro aca " + i);
+} 
 function Eliminar(i:number):void{
     let miArray = localStorage.getItem("datos");
     let miJson = JSON.parse(miArray);

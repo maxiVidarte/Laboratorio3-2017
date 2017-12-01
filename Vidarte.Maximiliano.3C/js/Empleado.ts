@@ -4,7 +4,7 @@ namespace Personas{
         public legajo:number;
         public horario:string;
 
-        constructor(nombre:string,apellido:string,edad:string,legajo:number,horario:string){
+        constructor(nombre:string,apellido:string,edad:number,legajo:number,horario:string){
             super(nombre,apellido,edad);
             this.legajo= legajo;
             this.horario=horario;
